@@ -30,11 +30,12 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose Vesper REST API & Studio UI port
+ENV PORT=8000
 EXPOSE 8000
 
 # Set healthcheck
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8000/api/health || exit 1
+    CMD curl -f http://localhost:${PORT:-8000}/api/health || exit 1
 
-# Start Uvicorn ASGI production server
-CMD ["python3", "-m", "uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]
+# Start Uvicorn ASGI production server with dynamic port support
+CMD ["sh", "-c", "python3 -m uvicorn server:app --host 0.0.0.0 --port ${PORT:-8000}"]
