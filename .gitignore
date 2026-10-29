@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C++ & Java compiled artifacts
+*.exe
+*.o
+*.class
+
+# Vesper runtime workspace
+.vesper_workspace/
+
+# Environments & testing caches
+.pytest_cache/
+.env
+.venv/
+env/
+venv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
