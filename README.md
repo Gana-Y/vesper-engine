@@ -2,10 +2,23 @@
 
 > **Hardened, High-Performance Code Execution Engine & Sandboxed Arbiter**
 
+[![Live Demo](https://img.shields.io/badge/Live_Studio-vesper--engine.onrender.com-brightgreen?style=for-the-badge&logo=render)](https://vesper-engine.onrender.com)
+[![API Docs](https://img.shields.io/badge/Swagger_API-Interactive_Docs-0284c7?style=for-the-badge&logo=fastapi)](https://vesper-engine.onrender.com/docs)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Docker](https://img.shields.io/badge/docker-runtime-blue.svg)](https://www.docker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status: Production Ready](https://img.shields.io/badge/status-production--ready-brightgreen.svg)]()
+
+> 🌐 **Live Web Studio**: [https://vesper-engine.onrender.com](https://vesper-engine.onrender.com)  
+> 📖 **Interactive REST API**: [https://vesper-engine.onrender.com/docs](https://vesper-engine.onrender.com/docs)
+
+---
+
+### 🖥️ Studio Interface Preview
+
+![Vesper Studio Interface](assets/vesper-preview.png)
+
+---
 
 **Vesper** is an isolated, multi-tenant code execution engine designed to compile, isolate, benchmark, and arbitrate untrusted code submissions. Built with strict defense-in-depth principles, Vesper enforces hardware-level Linux cgroup constraints, process quotas, and microsecond telemetry to safely evaluate competitive programming submissions across **C++17**, **Python 3**, and **Java 17+**.
 
