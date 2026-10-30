@@ -78,7 +78,7 @@ def run_custom(req: CustomRunRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/", response_class=HTMLResponse)
+@app.api_route("/", methods=["GET", "HEAD"], response_class=HTMLResponse)
 def interactive_playground():
     return """<!DOCTYPE html>
 <html lang="en">
@@ -86,6 +86,18 @@ def interactive_playground():
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vesper — Sandboxed Code Arbiter</title>
+    
+    <!-- OpenGraph & Social Cards for LinkedIn, Twitter, Slack -->
+    <meta property="og:title" content="Vesper — Sandboxed Code Execution Engine & Arbiter" />
+    <meta property="og:description" content="Isolated multi-tenant execution runtime with Linux cgroup sandboxing, sub-millisecond telemetry, and multi-language evaluation (C++, Python, Java)." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/Gana-Y/vesper-engine/main/assets/vesper-preview.png" />
+    <meta property="og:url" content="https://vesper-engine.onrender.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vesper — Sandboxed Code Execution Engine" />
+    <meta name="twitter:description" content="Hardened code execution engine evaluating untrusted C++, Python, and Java submissions with sub-millisecond telemetry." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Gana-Y/vesper-engine/main/assets/vesper-preview.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
