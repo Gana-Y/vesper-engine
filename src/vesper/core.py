@@ -13,11 +13,13 @@ class VesperEngine:
     Orchestrates compilation, sandboxing, resource telemetry, and verdict evaluation.
     """
 
-    def __init__(self, mode: str = "auto"):
+    def __init__(self, mode: Optional[str] = None):
         """
         :param mode: Execution backend mode: 'auto' (prefers Docker, falls back to local supervisor),
                      'docker' (strict Docker required), or 'local' (host supervisor).
         """
+        if mode is None:
+            mode = os.getenv("VESPER_MODE", "auto")
         self.mode = mode.lower()
 
     def _resolve_backend(self, time_limit: float, memory_limit: int, vol_path: str):
@@ -62,6 +64,10 @@ class VesperEngine:
         submission_id = str(uuid.uuid4())
         submission_dir = os.path.join(judger_vol_path, submission_id)
         os.makedirs(submission_dir, exist_ok=True)
+        try:
+            os.chmod(submission_dir, 0o777)
+        except Exception:
+            pass
 
         dm, use_docker = self._resolve_backend(time_limit, memory_limit, judger_vol_path)
         container = None
@@ -191,6 +197,10 @@ class VesperEngine:
         submission_id = str(uuid.uuid4())
         submission_dir = os.path.join(judger_vol_path, submission_id)
         os.makedirs(submission_dir, exist_ok=True)
+        try:
+            os.chmod(submission_dir, 0o777)
+        except Exception:
+            pass
 
         dm, use_docker = self._resolve_backend(time_limit, memory_limit, judger_vol_path)
         container = None

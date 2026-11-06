@@ -2,6 +2,7 @@
 Vesper — Isolated, High-Performance Code Execution Engine & Sandboxed Arbiter.
 """
 
+from typing import Optional
 from .models import Verdict, ExecutionResult
 from .core import VesperEngine
 from .docker_manager import DockerManager
@@ -20,7 +21,7 @@ def run_judger(
     src_code_path: str = None,
     std_in_path: str = None,
     expected_out_path: str = None,
-    mode: str = "auto"
+    mode: Optional[str] = None
 ) -> str:
     """
     Legacy drop-in compatibility helper returning string verdict (e.g. 'AC', 'WA', 'TLE', 'RE').
@@ -49,7 +50,7 @@ def custom_run(
     src_code: str = None,
     std_in: str = None,
     src_code_path: str = None,
-    mode: str = "auto"
+    mode: Optional[str] = None
 ):
     """
     Legacy drop-in compatibility helper for custom test runs.

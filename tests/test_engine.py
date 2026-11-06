@@ -3,13 +3,14 @@ Vesper Automated Test Suite
 Validates verdict arbitration, multi-language runtimes, and resource containment.
 """
 
+import os
 import pytest
 from src import VesperEngine, Verdict, run_judger
 
 
 @pytest.fixture
 def engine():
-    return VesperEngine(mode="auto")
+    return VesperEngine(mode=os.getenv("VESPER_MODE", "local"))
 
 
 def test_python_ac(engine):
