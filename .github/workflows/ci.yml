@@ -37,7 +37,7 @@ jobs:
 
       - name: Lint Code with Ruff
         run: |
-          ruff check src/ server.py --ignore E501
+          ruff check src/ server.py --select E,F --ignore E501
 
       - name: Run Pytest Suite with Coverage
         run: |

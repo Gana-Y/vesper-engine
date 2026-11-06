@@ -3,7 +3,7 @@ Vesper Execution Engine - Interactive Showcase
 Demonstrating multi-language evaluation, sandboxed resource telemetry, and verdict arbitration.
 """
 
-from src import VesperEngine, Verdict, run_judger
+from src import VesperEngine, run_judger
 
 def main():
     print("=" * 65)
@@ -38,8 +38,8 @@ print(f"Sum is {a + b}")
         language="cpp",
         time_limit=2.0,
         memory_limit=128,
-        src_code_path=r".\tests\cpp\cpp_test.cpp",
-        expected_out_path=r".\tests\cpp\cpp_op.txt"
+        src_code_path="tests/cpp/cpp_test.cpp",
+        expected_out_path="tests/cpp/cpp_op.txt"
     )
     print(f"Verdict         : {cpp_res.verdict.value} ({cpp_res.verdict.description})")
     print(f"Execution Time  : {cpp_res.execution_time_ms:.2f} ms")
@@ -51,9 +51,9 @@ print(f"Sum is {a + b}")
         language="java",
         time_limit=3.0,
         memory_limit=128,
-        src_code_path=r".\tests\java\UserProgram.java",
+        src_code_path="tests/java/UserProgram.java",
         std_in="10\n20",
-        expected_out_path=r".\tests\java\java_op.txt"
+        expected_out_path="tests/java/java_op.txt"
     )
     print(f"Verdict         : {java_res.verdict.value} ({java_res.verdict.description})")
     print(f"Execution Time  : {java_res.execution_time_ms:.2f} ms")

@@ -7,7 +7,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel, Field
 from typing import Optional
-from src import VesperEngine, Verdict
+from src import VesperEngine
 
 app = FastAPI(
     title="Vesper Execution Engine",

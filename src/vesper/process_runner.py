@@ -1,8 +1,6 @@
-import os
-import signal
 import subprocess
 import time
-from typing import Tuple, Optional
+from typing import Tuple
 
 try:
     import psutil

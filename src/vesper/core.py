@@ -1,10 +1,10 @@
 import os
 import shutil
 import uuid
-from typing import Optional, Union
+from typing import Optional
 from .models import Verdict, ExecutionResult
 from .languages import get_language_instance
-from .docker_manager import DockerManager, DockerUnavailableError
+from .docker_manager import DockerManager
 
 
 class VesperEngine:

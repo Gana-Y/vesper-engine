@@ -4,7 +4,7 @@ Validates verdict arbitration, multi-language runtimes, and resource containment
 """
 
 import pytest
-from src import VesperEngine, Verdict, run_judger, custom_run
+from src import VesperEngine, Verdict, run_judger
 
 
 @pytest.fixture
@@ -93,8 +93,8 @@ def test_cpp_ac(engine):
         language="cpp",
         time_limit=2.0,
         memory_limit=128,
-        src_code_path=r".\tests\cpp\cpp_test.cpp",
-        expected_out_path=r".\tests\cpp\cpp_op.txt"
+        src_code_path="tests/cpp/cpp_test.cpp",
+        expected_out_path="tests/cpp/cpp_op.txt"
     )
     assert res.verdict == Verdict.AC
     assert len(res.output.strip().splitlines()) == 15
@@ -105,7 +105,7 @@ def test_java_ac(engine):
         language="java",
         time_limit=3.0,
         memory_limit=128,
-        src_code_path=r".\tests\java\UserProgram.java",
+        src_code_path="tests/java/UserProgram.java",
         std_in="15\n25",
         expected_out="Sum: 40"
     )
